@@ -339,12 +339,31 @@
   .proj:hover .shot img{transform:scale(1.04);opacity:1}
   .proj .shot .shot-hint{position:absolute;right:10px;bottom:10px;font-family:var(--ff-mono);font-size:11px;color:var(--ink);background:rgba(11,11,12,.78);border:1px solid var(--line);border-radius:7px;padding:4px 9px;opacity:0;transition:opacity .2s;pointer-events:none}
   .proj:hover .shot .shot-hint{opacity:1}
+  .proj-detail{margin-top:16px;border-top:1px solid var(--line-soft)}
+  .proj-detail summary{list-style:none;cursor:pointer;font-family:var(--ff-mono);font-size:12px;letter-spacing:.04em;color:var(--amber);padding:14px 0 2px;display:flex;align-items:center;gap:8px;user-select:none;transition:color .15s}
+  .proj-detail summary::-webkit-details-marker{display:none}
+  .proj-detail summary:hover{color:var(--amber-2)}
+  .proj-detail summary .chev{display:inline-block;font-size:15px;line-height:1;transition:transform .2s ease}
+  .proj-detail[open] summary .chev{transform:rotate(90deg)}
+  .proj-detail[open] summary .lbl-open{display:none}
+  .proj-detail:not([open]) summary .lbl-close{display:none}
+  .pd-body{display:grid;gap:13px;padding:10px 0 4px;animation:pdIn .25s ease}
+  @keyframes pdIn{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
+  @media (prefers-reduced-motion:reduce){.pd-body{animation:none}}
+  .pd .lbl{font-family:var(--ff-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-dim);display:block;margin-bottom:5px}
+  .pd.sol .lbl{color:var(--amber)}
+  .pd p{font-size:13.5px;color:var(--ink-mut);margin:0;line-height:1.55}
+  .pd-impact{display:flex;flex-wrap:wrap;gap:6px;margin-top:2px}
+  .pd-impact span{font-family:var(--ff-mono);font-size:11px;color:var(--good);border:1px solid rgba(74,222,128,.25);background:rgba(74,222,128,.06);border-radius:6px;padding:3px 8px}
 
   /* ---------- TOOLS GRID ---------- */
   .tools-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:14px}
   .tool{aspect-ratio:1;background:linear-gradient(180deg,var(--panel),var(--bg-2));border:1px solid var(--line);border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;padding:12px 8px;transition:transform .18s ease,border-color .18s ease;text-align:center}
   .tool:hover{transform:translateY(-4px);border-color:#3a3a43}
-  .tool .mono-ic{width:38px;height:38px;border-radius:10px;display:grid;place-items:center;font-family:var(--ff-disp);font-weight:800;font-size:15px;letter-spacing:-.03em;color:#0B0B0C;flex:none}
+  .tool .logo{width:34px;height:34px;flex:none;background-color:var(--ink-mut);-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat;transition:background-color .2s ease}
+  .tool:hover .logo{background-color:var(--ink)}
+  .tool .mono-ic{width:38px;height:38px;display:grid;place-items:center;font-family:var(--ff-disp);font-weight:800;font-size:16px;letter-spacing:-.02em;color:var(--ink-mut);flex:none;transition:color .2s ease}
+  .tool:hover .mono-ic{color:var(--ink)}
   .tool .tn{font-size:11.5px;color:var(--ink-mut);line-height:1.2}
 
   /* ---------- AI ASSISTANT ---------- */
@@ -595,6 +614,14 @@
           <p>New leads trigger an instant, personalized reply in under 60 seconds — logged and tracked across Airtable with Slack alerts.</p>
           <div class="stack"><span>Make.com</span><span>Zapier</span><span>Airtable</span><span>Slack</span></div>
           <div class="proj-cats"><span>Make</span><span>Zapier</span></div>
+          <details class="proj-detail">
+            <summary><span class="chev">›</span><span class="lbl-open">View details</span><span class="lbl-close">Hide details</span></summary>
+            <div class="pd-body">
+              <div class="pd prob"><span class="lbl">Problem</span><p>Leads go cold in minutes. Manual follow-up means most new inquiries never get a fast reply — and the deal goes to whoever answered first.</p></div>
+              <div class="pd sol"><span class="lbl">Solution</span><p>New leads trigger an instant, personalized response in under 60 seconds, logged and tracked end-to-end across Airtable with Slack alerts.</p></div>
+              <div class="pd-impact"><span>Sub-60-second reply</span><span>Higher conversion</span><span>Zero leads dropped</span></div>
+            </div>
+          </details>
         </div>
         <div class="proj" data-cat="voice n8n">
           <a class="shot" href="/assets/voice.png" target="_blank" rel="noopener" aria-label="AI Voice Receptionist — full workflow canvas">
@@ -606,6 +633,14 @@
           <p>Answers 24/7, checks live availability, books into the calendar, routes to the right person, and hands off to a human when it matters.</p>
           <div class="stack"><span>Vapi</span><span>Twilio</span><span>n8n</span><span>OpenAI</span></div>
           <div class="proj-cats"><span>Voice</span><span>n8n</span></div>
+          <details class="proj-detail">
+            <summary><span class="chev">›</span><span class="lbl-open">View details</span><span class="lbl-close">Hide details</span></summary>
+            <div class="pd-body">
+              <div class="pd prob"><span class="lbl">Problem</span><p>Missed calls are missed revenue. Reception can't answer every call, book appointments, and triage emergencies at once.</p></div>
+              <div class="pd sol"><span class="lbl">Solution</span><p>An AI voice agent answers 24/7, checks live availability, books into the calendar, routes to the right person, and hands off to a human when it matters.</p></div>
+              <div class="pd-impact"><span>24/7 call coverage</span><span>Real-time booking</span><span>Human hand-off built in</span></div>
+            </div>
+          </details>
         </div>
         <div class="proj" data-cat="n8n">
           <a class="shot" href="/assets/email.png" target="_blank" rel="noopener" aria-label="AI Email Support Agent — full workflow canvas">
@@ -617,6 +652,14 @@
           <p>Reads every incoming email, detects intent, drafts an on-brand reply, prioritizes it, and escalates the tricky ones to a human.</p>
           <div class="stack"><span>n8n</span><span>OpenAI</span><span>Gmail</span></div>
           <div class="proj-cats"><span>n8n</span></div>
+          <details class="proj-detail">
+            <summary><span class="chev">›</span><span class="lbl-open">View details</span><span class="lbl-close">Hide details</span></summary>
+            <div class="pd-body">
+              <div class="pd prob"><span class="lbl">Problem</span><p>Teams burn hours on repetitive customer emails, and slow replies quietly hurt the customer experience.</p></div>
+              <div class="pd sol"><span class="lbl">Solution</span><p>AI reads every incoming email, detects intent, drafts an accurate on-brand reply, categorizes and prioritizes it, and escalates the tricky ones to a human.</p></div>
+              <div class="pd-impact"><span>Faster replies</span><span>Consistent answers</span><span>Humans stay in the loop</span></div>
+            </div>
+          </details>
         </div>
         <div class="proj" data-cat="n8n">
           <a class="shot" href="/assets/cashchaser.png" target="_blank" rel="noopener" aria-label="Accounts-Receivable Autopilot — full workflow canvas">
@@ -628,6 +671,14 @@
           <p>Detects overdue invoices, sends polite AI-written chasers on schedule, and emails the owner a weekly cash-flow brief — wired to Xero.</p>
           <div class="stack"><span>Xero API</span><span>OpenAI</span><span>n8n</span></div>
           <div class="proj-cats"><span>n8n</span></div>
+          <details class="proj-detail">
+            <summary><span class="chev">›</span><span class="lbl-open">View details</span><span class="lbl-close">Hide details</span></summary>
+            <div class="pd-body">
+              <div class="pd prob"><span class="lbl">Problem</span><p>Overdue invoices pile up because chasing them is awkward, manual, and always slips down the to-do list.</p></div>
+              <div class="pd sol"><span class="lbl">Solution</span><p>Automatically detects overdue invoices, sends polite AI-written chasers on schedule, and emails the owner a weekly cash-flow brief — connected straight to Xero.</p></div>
+              <div class="pd-impact"><span>Faster payments</span><span>No awkward chasing</span><span>Weekly cash-flow visibility</span></div>
+            </div>
+          </details>
         </div>
         <div class="proj" data-cat="n8n">
           <a class="shot" href="/assets/crm.png" target="_blank" rel="noopener" aria-label="CRM Lead Engine and Enrichment — full workflow canvas">
@@ -639,6 +690,14 @@
           <p>Enriches every new contact, scores it against your ICP, removes duplicates, and keeps records clean and sales-ready — automatically.</p>
           <div class="stack"><span>n8n</span><span>OpenAI</span><span>HubSpot</span><span>Hunter</span></div>
           <div class="proj-cats"><span>n8n</span></div>
+          <details class="proj-detail">
+            <summary><span class="chev">›</span><span class="lbl-open">View details</span><span class="lbl-close">Hide details</span></summary>
+            <div class="pd-body">
+              <div class="pd prob"><span class="lbl">Problem</span><p>CRMs rot — missing fields, duplicates, and unqualified leads make the whole pipeline impossible to trust.</p></div>
+              <div class="pd sol"><span class="lbl">Solution</span><p>AI enriches every new contact, scores it against your ideal-customer profile, removes duplicates, and keeps records clean and sales-ready — automatically.</p></div>
+              <div class="pd-impact"><span>Clean CRM data</span><span>Prioritized leads</span><span>Less manual entry</span></div>
+            </div>
+          </details>
         </div>
         <div class="proj" data-cat="n8n">
           <a class="shot" href="/assets/rag.png" target="_blank" rel="noopener" aria-label="RAG Support Chatbot — full workflow canvas">
@@ -650,6 +709,14 @@
           <p>Answers from your own docs with grounded, retrieval-augmented responses — and hands off cleanly when it can't help.</p>
           <div class="stack"><span>n8n</span><span>OpenAI</span><span>Vector Store</span></div>
           <div class="proj-cats"><span>n8n</span></div>
+          <details class="proj-detail">
+            <summary><span class="chev">›</span><span class="lbl-open">View details</span><span class="lbl-close">Hide details</span></summary>
+            <div class="pd-body">
+              <div class="pd prob"><span class="lbl">Problem</span><p>Customers ask the same questions around the clock, but support can't answer instantly at 2am.</p></div>
+              <div class="pd sol"><span class="lbl">Solution</span><p>A retrieval-augmented chatbot answers from your own docs and knowledge base with grounded, accurate responses — and hands off cleanly when it can't help.</p></div>
+              <div class="pd-impact"><span>24/7 instant answers</span><span>Grounded in your docs</span><span>Deflects repetitive tickets</span></div>
+            </div>
+          </details>
         </div>
         <div class="proj" data-cat="voice n8n">
           <a class="shot" href="/assets/feedback.png" target="_blank" rel="noopener" aria-label="Outbound Voice Feedback Bot — full workflow canvas">
@@ -661,6 +728,14 @@
           <p>Places outbound calls, holds a natural conversation, qualifies or collects feedback, respects opt-outs, and logs every result.</p>
           <div class="stack"><span>Vapi</span><span>Twilio</span><span>n8n</span><span>OpenAI</span></div>
           <div class="proj-cats"><span>Voice</span><span>n8n</span></div>
+          <details class="proj-detail">
+            <summary><span class="chev">›</span><span class="lbl-open">View details</span><span class="lbl-close">Hide details</span></summary>
+            <div class="pd-body">
+              <div class="pd prob"><span class="lbl">Problem</span><p>Calling customers for feedback or qualification doesn't scale — manual dialing eats a rep's whole day.</p></div>
+              <div class="pd sol"><span class="lbl">Solution</span><p>An AI voice agent places outbound calls, holds a natural conversation, qualifies or collects feedback, respects opt-outs, and logs every result automatically.</p></div>
+              <div class="pd-impact"><span>Calls at scale</span><span>Consistent script</span><span>Opt-outs handled</span></div>
+            </div>
+          </details>
         </div>
         <div class="proj" data-cat="n8n">
           <a class="shot" href="/assets/hvac.png" target="_blank" rel="noopener" aria-label="AI Field-Service Dispatch — full workflow canvas">
@@ -672,6 +747,14 @@
           <p>Triages incoming jobs by urgency, matches the best-fit technician, dispatches them, and auto-generates the invoice.</p>
           <div class="stack"><span>n8n</span><span>OpenAI</span><span>Scheduling</span></div>
           <div class="proj-cats"><span>n8n</span></div>
+          <details class="proj-detail">
+            <summary><span class="chev">›</span><span class="lbl-open">View details</span><span class="lbl-close">Hide details</span></summary>
+            <div class="pd-body">
+              <div class="pd prob"><span class="lbl">Problem</span><p>Field-service teams lose time triaging job requests, matching the right tech, and chasing paperwork after the visit.</p></div>
+              <div class="pd sol"><span class="lbl">Solution</span><p>AI triages incoming jobs by urgency, matches the best-fit technician from the roster, dispatches them, and auto-generates the invoice.</p></div>
+              <div class="pd-impact"><span>Faster dispatch</span><span>Right tech every time</span><span>Auto-invoicing</span></div>
+            </div>
+          </details>
         </div>
         <div class="proj" data-cat="n8n">
           <a class="shot" href="/assets/competitor.png" target="_blank" rel="noopener" aria-label="AI Competitor Intelligence — full workflow canvas">
@@ -683,6 +766,14 @@
           <p>Crawls competitor pages into a vector database, then answers plain-English questions with grounded, up-to-date intel.</p>
           <div class="stack"><span>n8n</span><span>OpenAI</span><span>Vector Store</span><span>Web Scraping</span></div>
           <div class="proj-cats"><span>n8n</span></div>
+          <details class="proj-detail">
+            <summary><span class="chev">›</span><span class="lbl-open">View details</span><span class="lbl-close">Hide details</span></summary>
+            <div class="pd-body">
+              <div class="pd prob"><span class="lbl">Problem</span><p>Keeping tabs on competitors means manually checking their sites — and forgetting what changed.</p></div>
+              <div class="pd sol"><span class="lbl">Solution</span><p>Automatically crawls competitor pages, stores them in a vector database, and lets you ask plain-English questions to get grounded, up-to-date answers.</p></div>
+              <div class="pd-impact"><span>Always-current intel</span><span>Ask in plain English</span><span>No manual checking</span></div>
+            </div>
+          </details>
         </div>
         <div class="proj" data-cat="n8n">
           <a class="shot" href="/assets/mcp.png" target="_blank" rel="noopener" aria-label="MCP-Powered AI Assistant — full workflow canvas">
@@ -694,6 +785,14 @@
           <p>An assistant built on the Model Context Protocol that connects to your tools and handles requests from a single chat interface.</p>
           <div class="stack"><span>n8n</span><span>OpenAI</span><span>MCP</span></div>
           <div class="proj-cats"><span>n8n</span></div>
+          <details class="proj-detail">
+            <summary><span class="chev">›</span><span class="lbl-open">View details</span><span class="lbl-close">Hide details</span></summary>
+            <div class="pd-body">
+              <div class="pd prob"><span class="lbl">Problem</span><p>Everyday admin — scheduling, lookups, drafting — is scattered across tools and eats focus time.</p></div>
+              <div class="pd sol"><span class="lbl">Solution</span><p>An AI assistant built on the Model Context Protocol that connects to your tools and handles requests through a single chat interface.</p></div>
+              <div class="pd-impact"><span>One place to ask</span><span>Connected to your tools</span><span>Less context-switching</span></div>
+            </div>
+          </details>
         </div>
         <div class="proj" data-cat="n8n">
           <a class="shot" href="/assets/social.png" target="_blank" rel="noopener" aria-label="AI Social Content Engine — full workflow canvas">
@@ -705,6 +804,14 @@
           <p>Drafts on-brand posts, routes them to Slack for one-click approval, publishes to LinkedIn, and logs everything to a sheet.</p>
           <div class="stack"><span>n8n</span><span>OpenAI</span><span>Slack</span><span>LinkedIn</span></div>
           <div class="proj-cats"><span>n8n</span></div>
+          <details class="proj-detail">
+            <summary><span class="chev">›</span><span class="lbl-open">View details</span><span class="lbl-close">Hide details</span></summary>
+            <div class="pd-body">
+              <div class="pd prob"><span class="lbl">Problem</span><p>Staying consistent on social means constantly writing, approving, and scheduling posts nobody has time for.</p></div>
+              <div class="pd sol"><span class="lbl">Solution</span><p>AI drafts on-brand posts, routes them to Slack for one-click approval, publishes to LinkedIn, and logs everything to a sheet.</p></div>
+              <div class="pd-impact"><span>Consistent posting</span><span>Human approval step</span><span>Fully logged</span></div>
+            </div>
+          </details>
         </div>
         <div class="proj" data-cat="n8n">
           <a class="shot" href="/assets/telegram.png" target="_blank" rel="noopener" aria-label="Telegram AI Agent — full workflow canvas">
@@ -716,6 +823,14 @@
           <p>An AI agent that lives in Telegram, understands requests, and responds instantly with the right information or action.</p>
           <div class="stack"><span>n8n</span><span>OpenAI</span><span>Telegram</span></div>
           <div class="proj-cats"><span>n8n</span></div>
+          <details class="proj-detail">
+            <summary><span class="chev">›</span><span class="lbl-open">View details</span><span class="lbl-close">Hide details</span></summary>
+            <div class="pd-body">
+              <div class="pd prob"><span class="lbl">Problem</span><p>Teams and communities on Telegram need instant answers, but a human can't be on call 24/7.</p></div>
+              <div class="pd sol"><span class="lbl">Solution</span><p>An AI agent lives in Telegram, understands requests, and responds instantly with the right information or action.</p></div>
+              <div class="pd-impact"><span>Instant replies</span><span>24/7 presence</span><span>Runs in your chat</span></div>
+            </div>
+          </details>
         </div>
         <div class="proj" data-cat="n8n">
           <a class="shot" href="/assets/whatsappqual.png" target="_blank" rel="noopener" aria-label="WhatsApp Lead Qualifier — full workflow canvas">
@@ -727,6 +842,14 @@
           <p>Reads each inbound WhatsApp lead, scores it against your criteria (BANT), and flags the ones worth a human's time.</p>
           <div class="stack"><span>n8n</span><span>OpenAI</span><span>WhatsApp</span></div>
           <div class="proj-cats"><span>n8n</span></div>
+          <details class="proj-detail">
+            <summary><span class="chev">›</span><span class="lbl-open">View details</span><span class="lbl-close">Hide details</span></summary>
+            <div class="pd-body">
+              <div class="pd prob"><span class="lbl">Problem</span><p>Inbound WhatsApp inquiries pile up, and reps waste time on leads that were never a fit.</p></div>
+              <div class="pd sol"><span class="lbl">Solution</span><p>AI reads each incoming WhatsApp lead, scores it against your criteria (BANT), and flags the ones worth a human's time.</p></div>
+              <div class="pd-impact"><span>Only qualified leads</span><span>Instant first response</span><span>Less busywork</span></div>
+            </div>
+          </details>
         </div>
         <div class="proj" data-cat="n8n">
           <a class="shot" href="/assets/emailqual.png" target="_blank" rel="noopener" aria-label="Email Lead Qualifier — full workflow canvas">
@@ -738,6 +861,14 @@
           <p>Reads inbound email leads, qualifies and scores them, and routes the promising ones straight to the right place.</p>
           <div class="stack"><span>n8n</span><span>OpenAI</span><span>Gmail</span></div>
           <div class="proj-cats"><span>n8n</span></div>
+          <details class="proj-detail">
+            <summary><span class="chev">›</span><span class="lbl-open">View details</span><span class="lbl-close">Hide details</span></summary>
+            <div class="pd-body">
+              <div class="pd prob"><span class="lbl">Problem</span><p>Not every inbound email is a real opportunity, but sorting the good from the noise by hand is slow.</p></div>
+              <div class="pd sol"><span class="lbl">Solution</span><p>AI reads inbound email leads, qualifies and scores them, and routes the promising ones straight to the right place.</p></div>
+              <div class="pd-impact"><span>Prioritized inbox</span><span>Faster response</span><span>No lead missed</span></div>
+            </div>
+          </details>
         </div>
       </div>
 
@@ -824,30 +955,30 @@
         <p>The platforms I use to design, wire, and ship automation — the ones I reach for on real client work.</p>
       </div>
       <div class="tools-grid">
-        <div class="tool"><span class="mono-ic" style="background:#fa4616;color:#fff">Ui</span><span class="tn">UiPath</span></div>
-        <div class="tool"><span class="mono-ic" style="background:#0b53ce;color:#fff">PA</span><span class="tn">Power Automate</span></div>
-        <div class="tool"><span class="mono-ic" style="background:#1a1a3a;color:#fff">AA</span><span class="tn">Automation&nbsp;Anywhere</span></div>
-        <div class="tool"><span class="mono-ic" style="background:#f2c811">BI</span><span class="tn">Power BI</span></div>
-        <div class="tool"><span class="mono-ic" style="background:#2ea3f2">HL</span><span class="tn">GoHighLevel</span></div>
-        <div class="tool"><span class="mono-ic" style="background:#ea4b71">n8</span><span class="tn">n8n</span></div>
-        <div class="tool"><span class="mono-ic" style="background:#6d3bd6">M</span><span class="tn">Make</span></div>
-        <div class="tool"><span class="mono-ic" style="background:#ff4a00">Z</span><span class="tn">Zapier</span></div>
-        <div class="tool"><span class="mono-ic" style="background:#10a37f">AI</span><span class="tn">OpenAI</span></div>
-        <div class="tool"><span class="mono-ic" style="background:#d97757">C</span><span class="tn">Claude</span></div>
-        <div class="tool"><span class="mono-ic" style="background:#12b886">Va</span><span class="tn">Vapi</span></div>
-        <div class="tool"><span class="mono-ic" style="background:#f22f46">Tw</span><span class="tn">Twilio</span></div>
-        <div class="tool"><span class="mono-ic" style="background:#fcb400">At</span><span class="tn">Airtable</span></div>
-        <div class="tool"><span class="mono-ic" style="background:#3ecf8e">Sb</span><span class="tn">Supabase</span></div>
-        <div class="tool"><span class="mono-ic" style="background:#ff7a59">Hs</span><span class="tn">HubSpot</span></div>
-        <div class="tool"><span class="mono-ic" style="background:#13b5ea">X</span><span class="tn">Xero</span></div>
-        <div class="tool"><span class="mono-ic" style="background:#3776ab;color:#fff">Py</span><span class="tn">Python</span></div>
-        <div class="tool"><span class="mono-ic" style="background:#4a154b;color:#fff">Sl</span><span class="tn">Slack</span></div>
-        <div class="tool"><span class="mono-ic" style="background:#e8e8ea">N</span><span class="tn">Notion</span></div>
-        <div class="tool"><span class="mono-ic" style="background:#ff3d57">Mo</span><span class="tn">Monday</span></div>
-        <div class="tool"><span class="mono-ic" style="background:#0f9d58;color:#fff">GS</span><span class="tn">Sheets</span></div>
-        <div class="tool"><span class="mono-ic" style="background:#25d366">Wa</span><span class="tn">WhatsApp</span></div>
-        <div class="tool"><span class="mono-ic" style="background:#46e3b7">Re</span><span class="tn">Render</span></div>
-        <div class="tool"><span class="mono-ic" style="background:#e8e8ea">Vc</span><span class="tn">Vercel</span></div>
+        <div class="tool"><span class="logo" style="-webkit-mask-image:url(/assets/logos/uipath.svg);mask-image:url(/assets/logos/uipath.svg)" role="img" aria-label="UiPath"></span><span class="tn">UiPath</span></div>
+        <div class="tool"><span class="mono-ic">PA</span><span class="tn">Power Automate</span></div>
+        <div class="tool"><span class="mono-ic">AA</span><span class="tn">Automation&nbsp;Anywhere</span></div>
+        <div class="tool"><span class="mono-ic">BI</span><span class="tn">Power BI</span></div>
+        <div class="tool"><span class="mono-ic">HL</span><span class="tn">GoHighLevel</span></div>
+        <div class="tool"><span class="logo" style="-webkit-mask-image:url(/assets/logos/n8n.svg);mask-image:url(/assets/logos/n8n.svg)" role="img" aria-label="n8n"></span><span class="tn">n8n</span></div>
+        <div class="tool"><span class="logo" style="-webkit-mask-image:url(/assets/logos/make.svg);mask-image:url(/assets/logos/make.svg)" role="img" aria-label="Make"></span><span class="tn">Make</span></div>
+        <div class="tool"><span class="logo" style="-webkit-mask-image:url(/assets/logos/zapier.svg);mask-image:url(/assets/logos/zapier.svg)" role="img" aria-label="Zapier"></span><span class="tn">Zapier</span></div>
+        <div class="tool"><span class="mono-ic">AI</span><span class="tn">OpenAI</span></div>
+        <div class="tool"><span class="logo" style="-webkit-mask-image:url(/assets/logos/claude.svg);mask-image:url(/assets/logos/claude.svg)" role="img" aria-label="Claude"></span><span class="tn">Claude</span></div>
+        <div class="tool"><span class="mono-ic">Va</span><span class="tn">Vapi</span></div>
+        <div class="tool"><span class="mono-ic">Tw</span><span class="tn">Twilio</span></div>
+        <div class="tool"><span class="logo" style="-webkit-mask-image:url(/assets/logos/airtable.svg);mask-image:url(/assets/logos/airtable.svg)" role="img" aria-label="Airtable"></span><span class="tn">Airtable</span></div>
+        <div class="tool"><span class="logo" style="-webkit-mask-image:url(/assets/logos/supabase.svg);mask-image:url(/assets/logos/supabase.svg)" role="img" aria-label="Supabase"></span><span class="tn">Supabase</span></div>
+        <div class="tool"><span class="logo" style="-webkit-mask-image:url(/assets/logos/hubspot.svg);mask-image:url(/assets/logos/hubspot.svg)" role="img" aria-label="HubSpot"></span><span class="tn">HubSpot</span></div>
+        <div class="tool"><span class="logo" style="-webkit-mask-image:url(/assets/logos/xero.svg);mask-image:url(/assets/logos/xero.svg)" role="img" aria-label="Xero"></span><span class="tn">Xero</span></div>
+        <div class="tool"><span class="logo" style="-webkit-mask-image:url(/assets/logos/python.svg);mask-image:url(/assets/logos/python.svg)" role="img" aria-label="Python"></span><span class="tn">Python</span></div>
+        <div class="tool"><span class="mono-ic">Sl</span><span class="tn">Slack</span></div>
+        <div class="tool"><span class="logo" style="-webkit-mask-image:url(/assets/logos/notion.svg);mask-image:url(/assets/logos/notion.svg)" role="img" aria-label="Notion"></span><span class="tn">Notion</span></div>
+        <div class="tool"><span class="mono-ic">Mo</span><span class="tn">Monday</span></div>
+        <div class="tool"><span class="logo" style="-webkit-mask-image:url(/assets/logos/googlesheets.svg);mask-image:url(/assets/logos/googlesheets.svg)" role="img" aria-label="Sheets"></span><span class="tn">Sheets</span></div>
+        <div class="tool"><span class="logo" style="-webkit-mask-image:url(/assets/logos/whatsapp.svg);mask-image:url(/assets/logos/whatsapp.svg)" role="img" aria-label="WhatsApp"></span><span class="tn">WhatsApp</span></div>
+        <div class="tool"><span class="logo" style="-webkit-mask-image:url(/assets/logos/render.svg);mask-image:url(/assets/logos/render.svg)" role="img" aria-label="Render"></span><span class="tn">Render</span></div>
+        <div class="tool"><span class="logo" style="-webkit-mask-image:url(/assets/logos/vercel.svg);mask-image:url(/assets/logos/vercel.svg)" role="img" aria-label="Vercel"></span><span class="tn">Vercel</span></div>
       </div>
     </div>
   </section>
@@ -1025,6 +1156,8 @@
       cForm=document.getElementById('chatForm'),cText=document.getElementById('chatText'),
       cClose=document.getElementById('chatClose');
   var started=false;
+  var history=[];
+  var defaultChips=["What does he build?","See the builds","Your tools","Book a call"];
 
   var intents=[
     {k:/^(hi|hey|hello|yo|sup|good (morning|evening|afternoon))/i,
@@ -1107,16 +1240,42 @@
       if(hit.act)setTimeout(function(){scrollTo(hit.act);},350);
     },reduce?150:650);
   }
+  function escHtml(s){return (''+s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+  function linkify(s){
+    return s
+      .replace(/(https?:\/\/[^\s<]+)/g,'<a href="$1" target="_blank" rel="noopener">$1</a>')
+      .replace(/([A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,})/g,'<a href="mailto:$1">$1</a>');
+  }
+  function scriptedReply(text){
+    var hit=match(text);
+    addMsg(hit.r,'bot');
+    history.push({role:'assistant',content:(''+hit.r).replace(/<[^>]+>/g,'')});
+    setChips(hit.chips);
+    if(hit.act)setTimeout(function(){scrollTo(hit.act);},350);
+  }
   function handle(text){
     text=(''+text).trim();if(!text)return;
     addMsg(text,'me');
+    history.push({role:'user',content:text});
     setChips([]);
-    respond(match(text));
+    var t=typing();
+    fetch('/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({message:text,history:history.slice(-8)})})
+      .then(function(r){return r.ok?r.json():Promise.reject();})
+      .then(function(d){
+        if(d&&d.reply){
+          t.remove();
+          addMsg(linkify(escHtml(d.reply)),'bot');
+          history.push({role:'assistant',content:d.reply});
+          setChips(defaultChips);
+        }else{return Promise.reject();}
+      })
+      .catch(function(){ t.remove(); scriptedReply(text); });
   }
   function boot(){
     if(started)return;started=true;
     addMsg("Hi 👋 I'm Patrick AI — ask me anything about Patrick's work, services, or how to get in touch.",'bot');
-    setChips(["What does he build?","See the builds","Your tools","Book a call"]);
+    setChips(defaultChips);
   }
   function openChat(){chat.classList.add('open');fab.classList.add('hidden');boot();setTimeout(function(){cText.focus();},250);}
   function closeChat(){chat.classList.remove('open');fab.classList.remove('hidden');}
