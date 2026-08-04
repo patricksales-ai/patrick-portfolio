@@ -1,4 +1,4 @@
-# robots.txt for patrick-portfolio-psi.vercel.app
+# robots.txt for patrickomarsales.com
 # All crawlers, including AI search assistants, are welcome.
 
 User-agent: *
@@ -26,4 +26,4 @@ Allow: /
 User-agent: Google-Extended
 Allow: /
 
-Sitemap: https://patrick-portfolio-psi.vercel.app/sitemap.xml
+Sitemap: https://patrickomarsales.com/sitemap.xml
